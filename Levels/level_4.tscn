@@ -62,13 +62,15 @@ where users can anonymously submit ridiculous grievances about vegetables."
 
 [node name="Label2" type="Label" parent="."]
 custom_minimum_size = Vector2(1152, 0)
-offset_top = 284.0
+offset_top = 81.0
 offset_right = 1152.0
-offset_bottom = 329.0
+offset_bottom = 510.0
 text = "Tomatoes are disgusting (Fact checked by rocket scientists).
 Onions emotionally manipulate people.
 I despise lettuce, biting into it releases a crunch, despise it looking soft - it is deceitful.
-I wish harm upon whatever freaks of nature like lettuce enough to breed more of it. "
+I wish harm upon whatever freaks of nature like lettuce enough to breed more of it. 
+Who wants to eat leaves? I AM NOT A RABBIT!
+My disgust at spelling it 'flavour'town is almost as much as my disgust for lettuce."
 label_settings = SubResource("LabelSettings_t60mx")
 autowrap_mode = 3
 
