@@ -1,0 +1,504 @@
+[gd_scene load_steps=13 format=3 uid="uid://bjri8h54d7jbv"]
+
+[ext_resource type="Script" uid="uid://bfxy1k80lf5ti" path="res://main.gd" id="1_padch"]
+[ext_resource type="Texture2D" uid="uid://eolrvt4lbd24" path="res://Assets/Flavour/hero-bg.png" id="2_uwxw1"]
+[ext_resource type="PackedScene" uid="uid://mudi65txlnkt" path="res://Entities/Player/player.tscn" id="3_ay5qi"]
+[ext_resource type="Texture2D" uid="uid://bgfe4a5ti3ghn" path="res://Assets/Flavour/Screenshot 2025-12-27 173142.png" id="4_absw3"]
+[ext_resource type="Script" uid="uid://bfvo6b226toxw" path="res://Levels/belt.gd" id="4_padch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf6l5"]
+size = Vector2(5068, 620)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arsda"]
+size = Vector2(1927.9999, 67)
+
+[sub_resource type="Animation" id="Animation_ej5lj"]
+resource_name = "ON"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(200, 71), Vector2(-2240, 71)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Belt2/Node2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 71), Vector2(-1900, 71)]
+}
+
+[sub_resource type="Animation" id="Animation_absw3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2240, 71)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Belt2/Node2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 71)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_padch"]
+_data = {
+&"ON": SubResource("Animation_ej5lj"),
+&"RESET": SubResource("Animation_absw3")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ej5lj"]
+size = Vector2(191, 191)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_padch"]
+size = Vector2(647, 122)
+
+[node name="level_3" type="Node2D"]
+script = ExtResource("1_padch")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2(0.7, 0.7)
+
+[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
+texture = ExtResource("2_uwxw1")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("3_ay5qi")]
+z_index = 5
+position = Vector2(546, 331)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(671, 5796)
+shape = SubResource("RectangleShape2D_rf6l5")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(0, 635)
+rotation = -1.5707964
+
+[node name="Right2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(317, -33.5)
+shape = SubResource("RectangleShape2D_arsda")
+
+[node name="Right3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(316.99994, 1185)
+shape = SubResource("RectangleShape2D_arsda")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Belt")
+libraries = {
+&"": SubResource("AnimationLibrary_padch")
+}
+autoplay = "ON"
+
+[node name="Belt" type="Node2D" parent="."]
+position = Vector2(398.00003, 23.999996)
+rotation = -0.08726646
+script = ExtResource("4_padch")
+
+[node name="Node2D" type="Node2D" parent="Belt"]
+position = Vector2(-2240, 71)
+
+[node name="ColorRect" type="ColorRect" parent="Belt/Node2D"]
+offset_left = -881.0
+offset_top = 577.00006
+offset_right = 2946.0
+offset_bottom = 790.07635
+color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+
+[node name="Prizes" type="Node2D" parent="Belt/Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="Belt/Node2D/Prizes"]
+offset_top = 590.0
+offset_right = 191.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt/Node2D/Prizes/ColorRect"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt/Node2D/Prizes/ColorRect/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect2" type="ColorRect" parent="Belt/Node2D/Prizes"]
+offset_left = 241.0
+offset_top = 590.0
+offset_right = 432.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt/Node2D/Prizes/ColorRect2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt/Node2D/Prizes/ColorRect2/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect3" type="ColorRect" parent="Belt/Node2D/Prizes"]
+offset_left = 500.0
+offset_top = 590.0
+offset_right = 691.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt/Node2D/Prizes/ColorRect3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt/Node2D/Prizes/ColorRect3/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect4" type="ColorRect" parent="Belt/Node2D/Prizes"]
+offset_left = 761.0
+offset_top = 590.0
+offset_right = 952.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt/Node2D/Prizes/ColorRect4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt/Node2D/Prizes/ColorRect4/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect5" type="ColorRect" parent="Belt/Node2D/Prizes"]
+offset_left = -761.0
+offset_top = 590.0
+offset_right = -570.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt/Node2D/Prizes/ColorRect5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt/Node2D/Prizes/ColorRect5/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect6" type="ColorRect" parent="Belt/Node2D/Prizes"]
+offset_left = -520.0
+offset_top = 590.0
+offset_right = -329.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt/Node2D/Prizes/ColorRect6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt/Node2D/Prizes/ColorRect6/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect7" type="ColorRect" parent="Belt/Node2D/Prizes"]
+offset_left = -261.0
+offset_top = 590.0
+offset_right = -70.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt/Node2D/Prizes/ColorRect7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt/Node2D/Prizes/ColorRect7/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect8" type="ColorRect" parent="Belt/Node2D/Prizes"]
+offset_left = 1899.0
+offset_top = 590.0
+offset_right = 2090.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt/Node2D/Prizes/ColorRect8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt/Node2D/Prizes/ColorRect8/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect9" type="ColorRect" parent="Belt/Node2D/Prizes"]
+offset_left = 2140.0
+offset_top = 590.0
+offset_right = 2331.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt/Node2D/Prizes/ColorRect9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt/Node2D/Prizes/ColorRect9/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect10" type="ColorRect" parent="Belt/Node2D/Prizes"]
+offset_left = 2399.0
+offset_top = 590.0
+offset_right = 2590.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt/Node2D/Prizes/ColorRect10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt/Node2D/Prizes/ColorRect10/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect11" type="ColorRect" parent="Belt/Node2D/Prizes"]
+offset_left = 2660.0
+offset_top = 590.0
+offset_right = 2851.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt/Node2D/Prizes/ColorRect11"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt/Node2D/Prizes/ColorRect11/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect12" type="ColorRect" parent="Belt/Node2D/Prizes"]
+offset_left = 1138.0
+offset_top = 590.0
+offset_right = 1329.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt/Node2D/Prizes/ColorRect12"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt/Node2D/Prizes/ColorRect12/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect13" type="ColorRect" parent="Belt/Node2D/Prizes"]
+offset_left = 1379.0
+offset_top = 590.0
+offset_right = 1570.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt/Node2D/Prizes/ColorRect13"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt/Node2D/Prizes/ColorRect13/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect14" type="ColorRect" parent="Belt/Node2D/Prizes"]
+offset_left = 1638.0
+offset_top = 590.0
+offset_right = 1829.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt/Node2D/Prizes/ColorRect14"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt/Node2D/Prizes/ColorRect14/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="Belt2" type="Node2D" parent="."]
+position = Vector2(760, 597)
+rotation = 0.17453292
+script = ExtResource("4_padch")
+
+[node name="Node2D" type="Node2D" parent="Belt2"]
+position = Vector2(0, 71)
+
+[node name="ColorRect" type="ColorRect" parent="Belt2/Node2D"]
+offset_left = -881.0
+offset_top = 577.00006
+offset_right = 2946.0
+offset_bottom = 790.07635
+color = Color(0.65882355, 0.7921569, 0.34509805, 1)
+
+[node name="Prizes" type="Node2D" parent="Belt2/Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="Belt2/Node2D/Prizes"]
+offset_top = 590.0
+offset_right = 191.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt2/Node2D/Prizes/ColorRect"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt2/Node2D/Prizes/ColorRect/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect2" type="ColorRect" parent="Belt2/Node2D/Prizes"]
+offset_left = 241.0
+offset_top = 590.0
+offset_right = 432.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt2/Node2D/Prizes/ColorRect2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt2/Node2D/Prizes/ColorRect2/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect3" type="ColorRect" parent="Belt2/Node2D/Prizes"]
+offset_left = 500.0
+offset_top = 590.0
+offset_right = 691.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt2/Node2D/Prizes/ColorRect3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt2/Node2D/Prizes/ColorRect3/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect4" type="ColorRect" parent="Belt2/Node2D/Prizes"]
+offset_left = 761.0
+offset_top = 590.0
+offset_right = 952.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt2/Node2D/Prizes/ColorRect4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt2/Node2D/Prizes/ColorRect4/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect5" type="ColorRect" parent="Belt2/Node2D/Prizes"]
+offset_left = -761.0
+offset_top = 590.0
+offset_right = -570.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt2/Node2D/Prizes/ColorRect5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt2/Node2D/Prizes/ColorRect5/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect6" type="ColorRect" parent="Belt2/Node2D/Prizes"]
+offset_left = -520.0
+offset_top = 590.0
+offset_right = -329.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt2/Node2D/Prizes/ColorRect6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt2/Node2D/Prizes/ColorRect6/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect7" type="ColorRect" parent="Belt2/Node2D/Prizes"]
+offset_left = -261.0
+offset_top = 590.0
+offset_right = -70.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt2/Node2D/Prizes/ColorRect7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt2/Node2D/Prizes/ColorRect7/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect8" type="ColorRect" parent="Belt2/Node2D/Prizes"]
+offset_left = 1899.0
+offset_top = 590.0
+offset_right = 2090.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt2/Node2D/Prizes/ColorRect8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt2/Node2D/Prizes/ColorRect8/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect9" type="ColorRect" parent="Belt2/Node2D/Prizes"]
+offset_left = 2140.0
+offset_top = 590.0
+offset_right = 2331.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt2/Node2D/Prizes/ColorRect9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt2/Node2D/Prizes/ColorRect9/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect10" type="ColorRect" parent="Belt2/Node2D/Prizes"]
+offset_left = 2399.0
+offset_top = 590.0
+offset_right = 2590.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt2/Node2D/Prizes/ColorRect10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt2/Node2D/Prizes/ColorRect10/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect11" type="ColorRect" parent="Belt2/Node2D/Prizes"]
+offset_left = 2660.0
+offset_top = 590.0
+offset_right = 2851.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt2/Node2D/Prizes/ColorRect11"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt2/Node2D/Prizes/ColorRect11/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect12" type="ColorRect" parent="Belt2/Node2D/Prizes"]
+offset_left = 1138.0
+offset_top = 590.0
+offset_right = 1329.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt2/Node2D/Prizes/ColorRect12"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt2/Node2D/Prizes/ColorRect12/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect13" type="ColorRect" parent="Belt2/Node2D/Prizes"]
+offset_left = 1379.0
+offset_top = 590.0
+offset_right = 1570.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt2/Node2D/Prizes/ColorRect13"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt2/Node2D/Prizes/ColorRect13/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="ColorRect14" type="ColorRect" parent="Belt2/Node2D/Prizes"]
+offset_left = 1638.0
+offset_top = 590.0
+offset_right = 1829.0
+offset_bottom = 781.0
+
+[node name="StaticBody2D" type="Area2D" parent="Belt2/Node2D/Prizes/ColorRect14"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belt2/Node2D/Prizes/ColorRect14/StaticBody2D"]
+position = Vector2(95, 95)
+shape = SubResource("RectangleShape2D_ej5lj")
+
+[node name="Screenshot20251227173142" type="Sprite2D" parent="."]
+position = Vector2(562, 510)
+texture = ExtResource("4_absw3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Screenshot20251227173142"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Screenshot20251227173142/StaticBody2D"]
+position = Vector2(2.5, 2)
+shape = SubResource("RectangleShape2D_padch")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+
+[editable path="Player"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://mudi65txlnkt"]
+
+[ext_resource type="Script" uid="uid://dt8ycncxdyp0t" path="res://Entities/Player/player.gd" id="1_3uyv8"]
+[ext_resource type="Texture2D" uid="uid://bq3nkth2tjfm" path="res://Assets/Flavour/step-3-nobg.png" id="1_mv1ah"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3uyv8"]
+radius = 17.0
+height = 72.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_3uyv8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3uyv8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.145, 0.145)
+texture = ExtResource("1_mv1ah")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+editor_draw_limits = true

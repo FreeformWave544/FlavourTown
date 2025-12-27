@@ -1,0 +1,198 @@
+[gd_scene load_steps=15 format=3 uid="uid://cxukdemoikpkr"]
+
+[ext_resource type="Script" uid="uid://b2nf8oyx0qy2x" path="res://Levels/level_2.gd" id="1_bcgyv"]
+[ext_resource type="Texture2D" uid="uid://eolrvt4lbd24" path="res://Assets/Flavour/hero-bg.png" id="2_dgq3b"]
+[ext_resource type="PackedScene" uid="uid://mudi65txlnkt" path="res://Entities/Player/player.tscn" id="3_bcgyv"]
+[ext_resource type="Texture2D" uid="uid://dp8kcwnelfawe" path="res://Assets/Flavour/Email.png" id="4_dgq3b"]
+[ext_resource type="Script" uid="uid://c5snadmikvq1x" path="res://Levels/email_field.gd" id="5_bcgyv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf6l5"]
+size = Vector2(150, 2312)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_syshm"]
+size = Vector2(14, 2182)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgq3b"]
+size = Vector2(30.999924, 1532)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arsda"]
+size = Vector2(662, 67)
+
+[sub_resource type="Animation" id="Animation_dgq3b"]
+resource_name = "Typing"
+length = 5.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EmailField/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.43333334, 2.1333332, 2.2666667, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.542, 0.435, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EmailField/Area2D/CollisionShape2D:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.578, 0.5781, 0.75, 0.8615, 1.01, 1.1465169, 1.2888, 1.4337872, 1.5739529, 1.717, 1.86, 2.0017, 2.185852, 2.2424178, 2.3613, 2.81, 3.021, 3.241, 3.4608, 3.681, 3.901, 4.13, 4.3404, 4.5603, 4.7802, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(174, 184), Vector2(225, 184), Vector2(300, 184), Vector2(360, 184), Vector2(415, 184), Vector2(444, 184), Vector2(500, 184), Vector2(564, 184), Vector2(610, 184), Vector2(666, 184), Vector2(720, 184), Vector2(777, 184), Vector2(721.2803, 184), Vector2(663, 184), Vector2(722, 184), Vector2(835, 184), Vector2(929, 184), Vector2(987, 184), Vector2(1082, 184), Vector2(1150, 184), Vector2(1171, 184), Vector2(1200, 184), Vector2(1230, 184), Vector2(1284, 184), Vector2(1350, 184), Vector2(1444, 184)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EmailField/Area2D/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.578, 0.5781, 0.75, 0.8615, 1.01, 1.1465169, 1.2888, 1.4337872, 1.5739529, 1.717, 1.86, 2.0017, 2.185852, 2.2424178, 2.3613, 2.81, 3.021, 3.241, 3.4608, 3.681, 3.901, 4.13, 4.3404, 4.5603, 4.7802, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 337), Vector2(25.5, 337), Vector2(25.5, 337), Vector2(56.25, 337), Vector2(82.625, 337), Vector2(97.0625, 337), Vector2(126.03125, 337), Vector2(158.51563, 337), Vector2(183.75781, 337), Vector2(212.8789, 337), Vector2(241.43945, 337), Vector2(270.21973, 337), Vector2(242.35986, 337), Vector2(213.35986, 337), Vector2(242.92993, 337), Vector2(299.46497, 337), Vector2(346.48248, 337), Vector2(375.49124, 337), Vector2(422.99564, 337), Vector2(456.99783, 337), Vector2(467.49893, 337), Vector2(481.49948, 337), Vector2(496.74973, 337), Vector2(523.8749, 337), Vector2(553.93744, 337), Vector2(600.96875, 337)]
+}
+
+[sub_resource type="Animation" id="Animation_bcgyv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EmailField/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EmailField/Area2D/CollisionShape2D:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(174, 184)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EmailField/Area2D/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 337)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fbld2"]
+_data = {
+&"RESET": SubResource("Animation_bcgyv"),
+&"Typing": SubResource("Animation_dgq3b")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_s275v"]
+font_size = 104
+font_color = Color(0, 0.1785602, 0.17856011, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbld2"]
+size = Vector2(174, 184)
+
+[node name="level_2" type="Node2D"]
+script = ExtResource("1_bcgyv")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2(0.7, 0.7)
+
+[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
+texture = ExtResource("2_dgq3b")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("3_bcgyv")]
+z_index = 5
+position = Vector2(121, 331)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_right = 1728
+limit_bottom = 648
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1457, 338)
+shape = SubResource("RectangleShape2D_rf6l5")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(0, 635)
+rotation = -1.5707964
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-7, 928)
+shape = SubResource("RectangleShape2D_syshm")
+
+[node name="Left2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(195.49997, 649)
+shape = SubResource("RectangleShape2D_dgq3b")
+
+[node name="Left3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(409.99997, 649)
+shape = SubResource("RectangleShape2D_dgq3b")
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(641.99994, 927)
+shape = SubResource("RectangleShape2D_syshm")
+
+[node name="Right2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(317, -33.5)
+shape = SubResource("RectangleShape2D_arsda")
+
+[node name="Email" type="Sprite2D" parent="."]
+position = Vector2(664, 334.00003)
+scale = Vector2(3.8461556, 3.8461542)
+texture = ExtResource("4_dgq3b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fbld2")
+}
+autoplay = "Typing"
+
+[node name="EmailField" type="Node2D" parent="."]
+script = ExtResource("5_bcgyv")
+
+[node name="Label" type="Label" parent="EmailField"]
+z_index = 7
+offset_left = 64.0
+offset_top = 258.0
+offset_right = 1624.0
+offset_bottom = 433.0
+text = "****.*******@gmail.com"
+label_settings = SubResource("LabelSettings_s275v")
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Area2D" type="Area2D" parent="EmailField"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EmailField/Area2D"]
+position = Vector2(0, 337)
+shape = SubResource("RectangleShape2D_fbld2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="EmailField/Area2D" to="EmailField" method="_on_area_2d_body_entered"]
+
+[editable path="Player"]

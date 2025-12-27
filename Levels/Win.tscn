@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://crg3frrm1vye6"]
+
+[ext_resource type="Script" uid="uid://6irh0i0ifkmu" path="res://Levels/win.gd" id="1_vxkl1"]
+[ext_resource type="FontFile" uid="uid://be6qwwui8nkgi" path="res://Assets/Flavour/FONT/JUA.otf" id="1_wuh57"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vcjwj"]
+font = ExtResource("1_wuh57")
+font_size = 80
+font_color = Color(0.972549, 0.9137255, 0.827451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vxkl1"]
+font = ExtResource("1_wuh57")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wuh57"]
+bg_color = Color(0.45882353, 0.654902, 0.2627451, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.8156863, 0.85490197, 0.5686275, 0.61960787)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_size = 1
+
+[node name="Win" type="Node2D"]
+script = ExtResource("1_vxkl1")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47843137, 0.28235295, 0.25490198, 1)
+
+[node name="FlowContainer" type="FlowContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -489.0
+offset_top = -58.5
+offset_right = 489.0
+offset_bottom = 58.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/FlowContainer"]
+layout_mode = 2
+text = "You've Beaten FlavourTown!"
+label_settings = SubResource("LabelSettings_vcjwj")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/FlowContainer"]
+layout_mode = 2
+text = "At Hack Club, students aren't just learning, they're shipping."
+label_settings = SubResource("LabelSettings_vxkl1")
+horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="Panel/FlowContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wuh57")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wuh57")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wuh57")
+text = "Play Again? 
+I know you want to."
+
+[node name="HSeparator" type="HSeparator" parent="Panel/FlowContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="Panel/FlowContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wuh57")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wuh57")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wuh57")
+text = "Leave Us?
+If you Insist..."
+
+[connection signal="pressed" from="Panel/FlowContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel/FlowContainer/Quit" to="." method="_on_quit_pressed"]

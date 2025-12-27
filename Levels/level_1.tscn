@@ -1,0 +1,166 @@
+[gd_scene load_steps=14 format=3 uid="uid://dxpsi6petjx85"]
+
+[ext_resource type="Script" uid="uid://bfxy1k80lf5ti" path="res://main.gd" id="1_3mhv4"]
+[ext_resource type="Texture2D" uid="uid://eolrvt4lbd24" path="res://Assets/Flavour/hero-bg.png" id="1_n0qsc"]
+[ext_resource type="PackedScene" uid="uid://mudi65txlnkt" path="res://Entities/Player/player.tscn" id="2_dilhk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dilhk"]
+font_size = 128
+font_color = Color(0.34901962, 0.17254902, 0.14901961, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dilhk"]
+size = Vector2(15, 101)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3mhv4"]
+radius = 28.0
+height = 74.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rf6l5"]
+radius = 31.0
+height = 74.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_syshm"]
+radius = 29.736206
+height = 74.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rfktq"]
+radius = 32.0
+height = 72.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dilhk"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mhv4"]
+size = Vector2(15, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf6l5"]
+size = Vector2(1167, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_syshm"]
+size = Vector2(14, 2182)
+
+[node name="level_1" type="Node2D"]
+script = ExtResource("1_3mhv4")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2(0.7, 0.7)
+
+[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
+texture = ExtResource("1_n0qsc")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("2_dilhk")]
+position = Vector2(576, -40)
+
+[node name="Words" type="StaticBody2D" parent="."]
+
+[node name="Label" type="Label" parent="Words"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = 443.0
+offset_right = 1344.0
+offset_bottom = 618.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Cook personal projects."
+label_settings = SubResource("LabelSettings_dilhk")
+horizontal_alignment = 1
+
+[node name="K" type="CollisionPolygon2D" parent="Words"]
+polygon = PackedVector2Array(139, 482, 154, 482, 154, 543, 183, 510, 200, 510, 172, 540, 202, 580, 184, 580, 162, 550, 154, 557, 154, 580, 139, 580)
+
+[node name="p" type="CollisionShape2D" parent="Words"]
+position = Vector2(253.5, 560.5)
+shape = SubResource("RectangleShape2D_dilhk")
+
+[node name="p2" type="CollisionShape2D" parent="Words"]
+position = Vector2(281, 545)
+shape = SubResource("CapsuleShape2D_3mhv4")
+
+[node name="p3" type="CollisionShape2D" parent="Words"]
+position = Vector2(828, 560.5)
+shape = SubResource("RectangleShape2D_dilhk")
+
+[node name="p4" type="CollisionShape2D" parent="Words"]
+position = Vector2(855.5, 545)
+shape = SubResource("CapsuleShape2D_3mhv4")
+
+[node name="e" type="CollisionShape2D" parent="Words"]
+position = Vector2(354, 544)
+shape = SubResource("CapsuleShape2D_rf6l5")
+
+[node name="e2" type="CollisionShape2D" parent="Words"]
+position = Vector2(1097, 544)
+shape = SubResource("CapsuleShape2D_rf6l5")
+
+[node name="r" type="CollisionPolygon2D" parent="Words"]
+polygon = PackedVector2Array(400, 510, 412, 510, 414, 522, 422, 513, 432, 509, 443, 509, 442, 523, 429, 523, 420, 530, 415, 539, 415, 580, 400, 580)
+
+[node name="r2" type="CollisionPolygon2D" parent="Words"]
+position = Vector2(500, 0)
+polygon = PackedVector2Array(400, 510, 412, 510, 414, 522, 422, 513, 432, 509, 443, 509, 442, 523, 429, 523, 420, 530, 415, 539, 415, 580, 400, 580)
+
+[node name="r3" type="CollisionPolygon2D" parent="Words"]
+position = Vector2(500, 0)
+polygon = PackedVector2Array(533, 510, 548, 510, 548, 594, 543, 606, 533, 611, 516, 610, 516, 598, 527, 599, 533, 593)
+
+[node name="s" type="CollisionShape2D" parent="Words"]
+position = Vector2(476, 544)
+rotation = 0.15632553
+shape = SubResource("CapsuleShape2D_syshm")
+
+[node name="o" type="CollisionShape2D" parent="Words"]
+position = Vector2(546, 545)
+shape = SubResource("CapsuleShape2D_rfktq")
+
+[node name="o2" type="CollisionShape2D" parent="Words"]
+position = Vector2(13, 546)
+shape = SubResource("CapsuleShape2D_rfktq")
+
+[node name="o3" type="CollisionShape2D" parent="Words"]
+position = Vector2(90, 545)
+shape = SubResource("CapsuleShape2D_rfktq")
+
+[node name="o4" type="CollisionShape2D" parent="Words"]
+position = Vector2(984, 545)
+shape = SubResource("CapsuleShape2D_rfktq")
+
+[node name="o5" type="CollisionShape2D" parent="Words"]
+position = Vector2(1041, 492)
+shape = SubResource("CircleShape2D_dilhk")
+
+[node name="n" type="CollisionPolygon2D" parent="Words"]
+polygon = PackedVector2Array(595, 510, 595, 580, 610, 580, 610, 536, 615, 525, 622, 521, 632, 521, 639, 525, 641, 532, 641, 580, 657, 580, 657, 528, 653, 517, 644, 511, 638, 509, 624, 509, 616, 513, 609, 520, 607, 510)
+
+[node name="a" type="CollisionPolygon2D" parent="Words"]
+polygon = PackedVector2Array(680, 515, 684, 525, 698, 520, 709, 520, 715, 525, 717, 530, 717, 538, 692, 538, 680, 543, 673, 555, 673, 565, 677, 573, 684, 579, 693, 581, 705, 580, 711, 577, 717, 570, 721, 580, 731, 580, 731, 525, 726, 514, 712, 509, 696, 509)
+
+[node name="a2" type="CollisionPolygon2D" parent="Words"]
+polygon = PackedVector2Array(1188, 524, 1192, 513, 1182, 509, 1164, 509, 1148, 516, 1140, 537, 1141, 560, 1149, 574, 1163, 580, 1184, 580, 1191, 576, 1191, 564, 1172, 569, 1158, 562, 1155, 549, 1156, 533, 1160, 525, 1166, 522, 1177, 521)
+
+[node name="l" type="CollisionShape2D" parent="Words"]
+position = Vector2(758.5, 531)
+shape = SubResource("RectangleShape2D_3mhv4")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(573.5, 1766)
+shape = SubResource("RectangleShape2D_rf6l5")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-7, 928)
+shape = SubResource("RectangleShape2D_syshm")
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1159, 928)
+shape = SubResource("RectangleShape2D_syshm")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

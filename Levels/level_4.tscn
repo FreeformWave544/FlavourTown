@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://ec02k74lr1kj"]
+
+[ext_resource type="Script" uid="uid://bfxy1k80lf5ti" path="res://main.gd" id="1_ujo87"]
+[ext_resource type="Texture2D" uid="uid://eolrvt4lbd24" path="res://Assets/Flavour/hero-bg.png" id="2_hvgxt"]
+[ext_resource type="PackedScene" uid="uid://mudi65txlnkt" path="res://Entities/Player/player.tscn" id="3_waaef"]
+[ext_resource type="FontFile" uid="uid://be6qwwui8nkgi" path="res://Assets/Flavour/FONT/JUA.otf" id="4_t60mx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf6l5"]
+size = Vector2(5068, 620)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arsda"]
+size = Vector2(1927.9999, 67)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t60mx"]
+font_size = 32
+font_color = Color(0, 0, 1, 1)
+
+[node name="level_3" type="Node2D"]
+script = ExtResource("1_ujo87")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2(0.7, 0.7)
+
+[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
+texture = ExtResource("2_hvgxt")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("3_waaef")]
+z_index = 5
+position = Vector2(546, 331)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(671, 5796)
+shape = SubResource("RectangleShape2D_rf6l5")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(0, 635)
+rotation = -1.5707964
+
+[node name="Right2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(317, -33.5)
+shape = SubResource("RectangleShape2D_arsda")
+
+[node name="Right3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(316.99994, 1185)
+shape = SubResource("RectangleShape2D_arsda")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_t60mx")
+theme_override_font_sizes/font_size = 32
+text = "Picture this: a virtual \"complaint box\"
+where users can anonymously submit ridiculous grievances about vegetables."
+
+[node name="Label2" type="Label" parent="."]
+custom_minimum_size = Vector2(1152, 0)
+offset_top = 284.0
+offset_right = 1152.0
+offset_bottom = 329.0
+text = "Tomatoes are disgusting (Fact checked by rocket scientists).
+Onions emotionally manipulate people.
+I despise lettuce, biting into it releases a crunch, despise it looking soft - it is deceitful.
+I wish harm upon whatever freaks of nature like lettuce enough to breed more of it. "
+label_settings = SubResource("LabelSettings_t60mx")
+autowrap_mode = 3
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+
+[editable path="Player"]
