@@ -1,0 +1,81 @@
+%!Adobe-FontList 1.25
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:CID
+FontName:BMJUAOTF
+FamilyName:BM JUA_OTF
+StyleName:Regular
+FullName:BM JUA OTF
+MenuName:BM JUA OTF
+StyleBits:0
+FamilyNameNative:배달의민족 주아 OTF
+StyleNameNative:Regular
+FullNameNative:배달의민족 주아 OTF
+WritingScript:Korean
+OutlineFileName:C:\Dev\Projects\hackclub\Assets\Flavour\Font\JUA.otf
+DataFormat:sfntData
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1302452
+FileModTime:1766764978
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,BM JUA OTF
+NameArray:3,Mac,4,배달의민족 주아 OTF
+NameArray:3,Mac,18,배달의민족 주아 OTF
+NameArray:0,Win,1,BM JUA OTF
+NameArray:0,Win,16,BM JUA_OTF
+NameArray:3,Win,1,배달의민족 주아 OTF
+NameArray:3,Win,16,배달의민족 주아 OTF
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Dev\Projects\hackclub\Assets\Flavour\Font\JUA.otf.import
+FileModTime:1766764978
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:BMJUA
+FamilyName:BM JUA_TTF
+StyleName:Regular
+FullName:BM JUA
+MenuName:BM JUA
+StyleBits:0
+FamilyNameNative:배달의민족 주아
+StyleNameNative:Regular
+FullNameNative:배달의민족 주아
+WritingScript:Korean
+OutlineFileName:C:\Dev\Projects\hackclub\Assets\Flavour\Font\JUA.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1525212
+FileModTime:1766764978
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,BM JUA
+NameArray:0,Mac,4,BM JUA
+NameArray:0,Win,1,BM JUA
+NameArray:0,Win,16,BM JUA_TTF
+NameArray:3,Win,1,배달의민족 주아
+NameArray:3,Win,16,배달의민족 주아
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Dev\Projects\hackclub\Assets\Flavour\Font\JUA.ttf.import
+FileModTime:1766764978
+%EndFont
+
