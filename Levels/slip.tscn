@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://drhu0guvisky"]
+[gd_scene load_steps=6 format=3 uid="uid://drhu0guvisky"]
 
 [ext_resource type="Script" uid="uid://b1tthuaoqrec7" path="res://Levels/slip.gd" id="1_d8tlr"]
+[ext_resource type="Texture2D" uid="uid://j7nqyoy02njf" path="res://Assets/paper.png" id="2_rb7nl"]
+[ext_resource type="FontFile" uid="uid://be6qwwui8nkgi" path="res://Assets/Flavour/FONT/JUA.otf" id="3_muker"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kfs46"]
 bounce = 0.2
@@ -16,17 +18,21 @@ physics_material_override = SubResource("PhysicsMaterial_kfs46")
 script = ExtResource("1_d8tlr")
 complaints = Array[String](["Onions emotionally manipulate people.", "I despise lettuce, biting into it releases a crunch, despite it looking soft - it is deceitful.", "I wish harm upon whatever freaks of nature like lettuce enough to breed more of it.", "Who wants to eat leaves? I AM NOT A RABBIT!", "My disgust at spelling it 'flavour'town is almost as much as my disgust for lettuce.", "Okra? No thank you. I have glue at home.", "Best Vegetable of The Year - Arugula (voted by Ageusia around the world)", "Broccoli is a scammer, bro you aren't a tree stop pretending", "You need a chainsaw to cut through bok choy", "Lettuce is good for a salad, assuming you make that salad within 14 seconds of buying it", "Peas? Get a new name", "Bell peppers are cool.", "You don't even actually eat celery, that stuff eats you."])
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="Sprite2D" parent="."]
 z_index = 20
-offset_right = 192.0
-offset_bottom = 108.0
-color = Color(0, 0, 0, 0.69411767)
+scale = Vector2(0.13061225, 0.110091746)
+texture = ExtResource("2_rb7nl")
+centered = false
 
 [node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_right = 192.0
-offset_bottom = 108.0
-theme_override_font_sizes/font_size = 12
+z_index = 20
+offset_right = 1469.9999
+offset_bottom = 980.99994
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_muker")
+theme_override_font_sizes/font_size = 112
 text = "Tomatoes are disgusting (Fact checked by rocket scientists)."
 horizontal_alignment = 1
 vertical_alignment = 1
