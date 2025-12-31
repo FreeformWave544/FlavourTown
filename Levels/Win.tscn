@@ -64,17 +64,26 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Panel/FlowContainer"]
 layout_mode = 2
-text = "You've Beaten FlavourTown!"
+text = "You've Beat
+FlavourTown (The British Way)!"
 label_settings = SubResource("LabelSettings_vcjwj")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Panel/FlowContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/FlowContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/FlowContainer/VBoxContainer"]
 layout_mode = 2
 text = "At Hack Club, students aren't just learning, they're shipping."
 label_settings = SubResource("LabelSettings_vxkl1")
 horizontal_alignment = 1
 
-[node name="Restart" type="Button" parent="Panel/FlowContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/FlowContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Restart" type="Button" parent="Panel/FlowContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_wuh57")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wuh57")
@@ -82,11 +91,11 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_wuh57")
 text = "Play Again? 
 I know you want to."
 
-[node name="HSeparator" type="HSeparator" parent="Panel/FlowContainer"]
+[node name="HSeparator" type="HSeparator" parent="Panel/FlowContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="Quit" type="Button" parent="Panel/FlowContainer"]
+[node name="Quit" type="Button" parent="Panel/FlowContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_wuh57")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wuh57")
@@ -94,5 +103,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_wuh57")
 text = "Leave Us?
 If you Insist..."
 
-[connection signal="pressed" from="Panel/FlowContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="Panel/FlowContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Panel/FlowContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel/FlowContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxukdemoikpkr"]
+[gd_scene load_steps=16 format=3 uid="uid://cxukdemoikpkr"]
 
 [ext_resource type="Script" uid="uid://b2nf8oyx0qy2x" path="res://Levels/level_2.gd" id="1_bcgyv"]
 [ext_resource type="Texture2D" uid="uid://eolrvt4lbd24" path="res://Assets/Flavour/hero-bg.png" id="2_dgq3b"]
@@ -17,6 +17,9 @@ size = Vector2(30.999924, 1532)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arsda"]
 size = Vector2(662, 67)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bcgyv"]
+font_size = 48
 
 [sub_resource type="Animation" id="Animation_bcgyv"]
 length = 0.001
@@ -165,6 +168,17 @@ shape = SubResource("RectangleShape2D_arsda")
 position = Vector2(664, 334.00003)
 scale = Vector2(3.8461556, 3.8461542)
 texture = ExtResource("4_dgq3b")
+
+[node name="Label" type="Label" parent="Email"]
+visible = false
+modulate = Color(0.6392157, 1, 1, 1)
+z_index = 50
+offset_left = -176.2799
+offset_top = -35.100006
+offset_right = 284.7201
+offset_bottom = 52.899994
+text = "INVALID EMAIL"
+label_settings = SubResource("LabelSettings_bcgyv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

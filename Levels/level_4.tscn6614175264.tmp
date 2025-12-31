@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ec02k74lr1kj"]
+[gd_scene load_steps=14 format=3 uid="uid://ec02k74lr1kj"]
 
 [ext_resource type="Script" uid="uid://eafeo3c4aj1w" path="res://Levels/vegetables.gd" id="1_ujo87"]
 [ext_resource type="Texture2D" uid="uid://eolrvt4lbd24" path="res://Assets/Flavour/hero-bg.png" id="2_hvgxt"]
@@ -12,11 +12,8 @@ size = Vector2(5068, 620)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arsda"]
 size = Vector2(1927.9999, 67)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvgxt"]
-size = Vector2(10, 1152)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujo87"]
-size = Vector2(1152, 10)
+size = Vector2(10, 1152)
 
 [sub_resource type="LabelSettings" id="LabelSettings_t60mx"]
 font_size = 32
@@ -65,7 +62,6 @@ font_color = Color(0, 1, 0, 1)
 
 [node name="level_4" type="Node2D"]
 script = ExtResource("1_ujo87")
-positions = Array[Vector2]([Vector2(-300, 400), Vector2(1000, -120), Vector2(130, -150), Vector2(1400, 300), Vector2(576, 756), Vector2(-200, -200), Vector2(1452, -200), Vector2(1178, 484), Vector2(1178, 622), Vector2(944, 728), Vector2(-264, -214), Vector2(577, 673), Vector2(577, -756)])
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_base_scale = Vector2(0.7, 0.7)
@@ -79,7 +75,7 @@ centered = false
 [node name="Player" parent="." instance=ExtResource("3_waaef")]
 z_index = 5
 position = Vector2(546, 331)
-collision_mask = 5
+collision_mask = 7
 script = ExtResource("4_ujo87")
 
 [node name="Camera2D" parent="Player" index="2"]
@@ -88,33 +84,29 @@ limit_bottom = 648
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(671, 1591)
+position = Vector2(671, 5796)
 shape = SubResource("RectangleShape2D_rf6l5")
 
 [node name="Walls" type="StaticBody2D" parent="."]
 position = Vector2(0, 635)
 rotation = -1.5707964
+collision_layer = 4
 
 [node name="Right2" type="CollisionShape2D" parent="Walls"]
 position = Vector2(317, -33.5)
 shape = SubResource("RectangleShape2D_arsda")
 
+[node name="Right4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-18, 576)
+shape = SubResource("RectangleShape2D_ujo87")
+
 [node name="Right5" type="CollisionShape2D" parent="Walls"]
-position = Vector2(641, 576)
-shape = SubResource("RectangleShape2D_hvgxt")
+position = Vector2(640, 576)
+shape = SubResource("RectangleShape2D_ujo87")
 
 [node name="Right3" type="CollisionShape2D" parent="Walls"]
 position = Vector2(316.99994, 1185)
 shape = SubResource("RectangleShape2D_arsda")
-
-[node name="Floor" type="StaticBody2D" parent="."]
-collision_layer = 5
-collision_mask = 3
-
-[node name="Right4" type="CollisionShape2D" parent="Floor"]
-position = Vector2(576, 654)
-shape = SubResource("RectangleShape2D_ujo87")
-one_way_collision = true
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -166,9 +158,6 @@ size_flags_horizontal = 4
 text = "Vegetables?"
 label_settings = SubResource("LabelSettings_fqog2")
 horizontal_alignment = 1
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(577, -756)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 

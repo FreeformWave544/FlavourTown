@@ -16,8 +16,8 @@ radius = 28.0
 height = 74.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rf6l5"]
-radius = 31.0
-height = 74.0
+radius = 35.0
+height = 78.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_syshm"]
 radius = 29.736206
@@ -95,7 +95,7 @@ position = Vector2(354, 544)
 shape = SubResource("CapsuleShape2D_rf6l5")
 
 [node name="e2" type="CollisionShape2D" parent="Words"]
-position = Vector2(1097, 544)
+position = Vector2(1099, 546)
 shape = SubResource("CapsuleShape2D_rf6l5")
 
 [node name="r" type="CollisionPolygon2D" parent="Words"]
