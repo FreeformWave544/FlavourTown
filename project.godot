@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="hackclub"
+config/name="FlavourTown"
 run/main_scene="uid://dxpsi6petjx85"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
