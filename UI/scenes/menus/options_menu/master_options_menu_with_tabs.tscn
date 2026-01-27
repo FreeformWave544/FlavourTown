@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckac1cwhd0n1t"]
+
+[ext_resource type="Script" uid="uid://c3mignmhuvvq4" path="res://addons/maaacks_options_menus/base/nodes/menus/options_menu/paginated_tab_container.gd" id="1_84jli"]
+[ext_resource type="Theme" uid="uid://deueoyl4msppj" path="res://mainTheme.tres" id="1_uyhwg"]
+[ext_resource type="PackedScene" uid="uid://buc30rwftfma4" path="res://UI/scenes/menus/options_menu/input/input_options_menu.tscn" id="2_uyhwg"]
+[ext_resource type="PackedScene" uid="uid://ccmbga8163naj" path="res://UI/scenes/menus/options_menu/input/input_extras_menu.tscn" id="3_aatex"]
+[ext_resource type="PackedScene" uid="uid://oe3cvqwxb5p0" path="res://UI/scenes/menus/options_menu/audio/audio_options_menu.tscn" id="4_2fdu1"]
+[ext_resource type="PackedScene" uid="uid://b3urj7ei8xb60" path="res://UI/scenes/menus/options_menu/video/video_options_menu_with_extras.tscn" id="5_i0t8d"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 55.111084
+offset_top = 31.0
+offset_right = -56.888916
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uyhwg")
+
+[node name="MasterOptionsMenu" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 0
+script = ExtResource("1_84jli")
+
+[node name="Controls" parent="MasterOptionsMenu" instance=ExtResource("2_uyhwg")]
+layout_mode = 2
+remapping_mode = 1
+metadata/_tab_index = 0
+
+[node name="Inputs" parent="MasterOptionsMenu" instance=ExtResource("3_aatex")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Audio" parent="MasterOptionsMenu" instance=ExtResource("4_2fdu1")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Video" parent="MasterOptionsMenu" instance=ExtResource("5_i0t8d")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Back"
+
+[connection signal="pressed" from="Back" to="MasterOptionsMenu" method="_on_back_pressed"]

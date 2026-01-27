@@ -30,7 +30,6 @@ offset_right = 1469.9999
 offset_bottom = 980.99994
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("3_muker")
 theme_override_font_sizes/font_size = 112
 text = "Tomatoes are disgusting (Fact checked by rocket scientists)."

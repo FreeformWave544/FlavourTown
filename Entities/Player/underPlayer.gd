@@ -4,9 +4,12 @@ class_name UnderPlayer
 const SPEED = 800.0
 const JUMP_VELOCITY = -400.0
 
+func _unhandled_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("reset"):
+		reset()
 
 func _physics_process(_delta: float) -> void:
-	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction := Input.get_vector("left", "right", "up", "down")
 	if direction:
 		velocity = direction * SPEED
 		if direction.x:
